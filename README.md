@@ -1,7 +1,7 @@
 # ProtoReady: Footstep System
 
 ![UE5](https://img.shields.io/badge/Unreal_Engine-5.5+-0078D7?style=for-the-badge&logo=unrealengine&logoColor=white) 
-![CPP](https://img.shields.io/badge/Language-C++17-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) 
+![CPP](https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) 
 ![Net](https://img.shields.io/badge/Replication-Supported-28A745?style=for-the-badge)
 
 > **[UE 5.5+]** **[C++]** **[Production-Ready]**
@@ -53,6 +53,8 @@
 
 ## Package Contents
 
+![Audio](https://img.shields.io/badge/Audio_Samples-20+-FFC107?style=flat-square) ![Assets](https://img.shields.io/badge/Sound_Cues-5-FFC107?style=flat-square)
+
 *   **PRFootstepComponent**: Lightweight C++ Actor Component.
 *   **PRFootstepData**: Configuration DataAsset.
 *   **20+ Audio Samples**: Concrete, Dirt, Grass, Wood, Water.
@@ -64,6 +66,8 @@
 ---
 
 ## Technical Specifications
+
+![Architecture](https://img.shields.io/badge/Class-Actor_Component-informational?style=flat-square) ![Config](https://img.shields.io/badge/Config-DataAsset-informational?style=flat-square)
 
 ### Classes
 *   **`UPRFootstepComponent`** (`UActorComponent`): Core logic engine (Tick, Trace, Spawn). Optimized with LOD.
