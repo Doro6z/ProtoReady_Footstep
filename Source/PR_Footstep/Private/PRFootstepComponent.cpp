@@ -325,33 +325,35 @@ bool UPRFootstepComponent::PerformTrace(const FVector &Start,
   float ShapeRadius = FootstepData ? FootstepData->SphereRadius : 10.0f;
   FVector BoxExtent =
       FootstepData ? FootstepData->BoxHalfExtent : FVector(10.f);
+  ECollisionChannel Channel =
+      FootstepData ? FootstepData->TraceChannel.GetValue() : ECC_Visibility;
 
   switch (TraceMode) {
   case EPRTraceType::Line:
-    bHit = GetWorld()->LineTraceSingleByChannel(OutHit, Start, End,
-                                                ECC_Visibility, Params);
+    bHit = GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, Channel,
+                                                Params);
     break;
 
   case EPRTraceType::Sphere:
     bHit = GetWorld()->SweepSingleByChannel(
-        OutHit, Start, End, FQuat::Identity, ECC_Visibility,
+        OutHit, Start, End, FQuat::Identity, Channel,
         FCollisionShape::MakeSphere(ShapeRadius), Params);
     break;
 
   case EPRTraceType::Box:
     bHit = GetWorld()->SweepSingleByChannel(
-        OutHit, Start, End, FQuat::Identity, ECC_Visibility,
+        OutHit, Start, End, FQuat::Identity, Channel,
         FCollisionShape::MakeBox(BoxExtent), Params);
     break;
 
   case EPRTraceType::Multi:
     // Multi-trace: Try sphere first, fallback to line
     bHit = GetWorld()->SweepSingleByChannel(
-        OutHit, Start, End, FQuat::Identity, ECC_Visibility,
+        OutHit, Start, End, FQuat::Identity, Channel,
         FCollisionShape::MakeSphere(ShapeRadius), Params);
     if (!bHit) {
-      bHit = GetWorld()->LineTraceSingleByChannel(OutHit, Start, End,
-                                                  ECC_Visibility, Params);
+      bHit = GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, Channel,
+                                                  Params);
     }
     break;
   }

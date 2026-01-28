@@ -78,6 +78,9 @@ public:
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PR Footstep|Trace")
   bool bUseFootSockets = true;
 
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PR Footstep|Trace")
+  TEnumAsByte<ECollisionChannel> TraceChannel = ECC_Visibility;
+
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PR Footstep|Trace",
             meta = (EditCondition = "bUseFootSockets", EditConditionHides))
   TArray<FName> FootSockets;

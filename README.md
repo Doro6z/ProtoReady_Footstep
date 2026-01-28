@@ -2,13 +2,15 @@
 
 ![UE5](https://img.shields.io/badge/Unreal_Engine-5.5+-0078D7?style=for-the-badge&logo=unrealengine&logoColor=white) 
 ![CPP](https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) 
-![Net](https://img.shields.io/badge/Replication-Supported-28A745?style=for-the-badge)
+![Replication](https://img.shields.io/badge/REPLICATION-Ready-28A745?style=for-the-badge)
 
 > **Production-Ready Footstep System setup in under 5 minutes.**
 >
 > A high-performance solution engineered for **Physical Surfaces**. Drop the component on your character, and it just works. No spaghetti Blueprint logic required.
 
-![Showcase Level](Distribution/pr_footstep_banner_v2.png)
+![Showcase Level](Distribution/pr_footstep_banner_v3.png)
+
+![Trace](https://img.shields.io/badge/Trace-Sphere_/_Line_/_Box-d00000?style=flat-square&labelColor=black) ![Surface](https://img.shields.io/badge/Surface-Physical_Material-d00000?style=flat-square&labelColor=black) ![Trigger](https://img.shields.io/badge/Trigger-Distance_/_AnimNotify-d00000?style=flat-square&labelColor=black)
 
 ---
 
@@ -23,14 +25,14 @@
 ---
 
 ## Setup
-![Setup](https://img.shields.io/badge/Setup-Under_5_Min-28A745?style=flat-square)
+![Setup](https://img.shields.io/badge/Setup-≈_5_min-28A745?style=flat-square)
 
 1.  **Enable the plugin**: Edit > Plugins > ProtoReady Footstep.
 2.  **Define your Physical Surfaces**: Edit > Project Settings > Engine > Physics > Physical Surface.
 3.  **Add the `PRFootstepComponent`** to your Character (or any Actor).
 4.  **Create a `PRFootstepData` DataAsset** and assign it to the component.
 
-*Example surfaces: Concrete, Dirt, Grass, Water, Wood. In editor, if only one `PRFootstepData` exists, it is auto-assigned when the component is created.*
+*Example surfaces: Concrete, Dirt, Grass, Water, Wood. If only one `PRFootstepData` exists, it is auto-assigned on creation.*
 
 ![Data Asset](Distribution/Setup_DataAsset.png)
 
@@ -39,7 +41,7 @@
 ## How it works
 
 ### Footstep triggering
-*   **AnimNotify (animation-driven)**: Add the `PR_Footstep` notify to your animations. The notify exposes `FootSocketName` and is available as soon as the plugin is installed.
+*   **AnimNotify (animation-driven)**: Add the `PR_Footstep` notify to your animations. The notify exposes `FootSocketName` and is available immediately.
 *   **Distance (auto)**: Triggers a step every `DistanceInterval` cm traveled. In Distance mode, Tick is enabled automatically.
 
 ### Landing
@@ -47,7 +49,7 @@
 *   `LandingSound` is used if set; otherwise the system plays a standard footstep with the landing flag.
 
 ### Traces & surfaces
-*   Surface detection is done by trace on `ECC_Visibility` (Line / Sphere / Multi).
+*   Surface detection is done by trace on a **Configurable Collision Channel** (Default: `ECC_Visibility`).
 *   Surfaces come from the mesh **Physical Material**. If missing, `SurfaceType_Default` is used.
 *   `DefaultSound` is the fallback sound used when the surface is not mapped or when no Physical Material is found.
 
