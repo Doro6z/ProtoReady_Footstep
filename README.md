@@ -1,16 +1,17 @@
-# ProtoReady : Système de Pas
+# [ProtoReady] Audio Footstep System - système de bruit de pas.
 
 ![UE5](https://img.shields.io/badge/Unreal_Engine-5.5+-0078D7?style=for-the-badge&logo=unrealengine&logoColor=white) 
 ![CPP](https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) 
 ![Replication](https://img.shields.io/badge/REPLICATION-Supported-28A745?style=for-the-badge&labelColor=28A745)
 
-> **Système de sons de pas prêt pour la production, configuré en moins de 5 minutes.**
->
-> *   Composants **Drag-and-drop**
-> *   **Auto-configuration** via DataAssets
-> *   **Zéro code** (boilerplate) requis
-> *   **Quick start** clair (< 5 min)
-> *   **Tooltips** dans l'éditeur
+> **Système audio footstep clé en main.**
+> Setup en 5 minutes. Compatible multi player. Full c++ + 3 nodes de contrôle blueprint.
+> Configurable pour tous vos personnage. (n'importe quel Actor)
+> 
+> *   **Configuration** via DataAssets
+> *   **Zéro code/Blueprint** requis
+> *   **Tooltips** éditeur
+> *   **20+ Samples Audio** pour un système fonctionnel dès son implémentation.
 
 ![Showcase Level](Distribution/pr_footstep_banner_v3.png)
 
@@ -20,11 +21,10 @@
 
 ## ⚡ Fonctionnalités Clés
 
-*   **Configuration Zéro-Code** : Strictement piloté par DataAsset.
-*   **Interaction Physique** : Valide automatiquement les surfaces via `PhysicalMaterials`, empêchant les "bruits de pierre sur de l'herbe".
-*   **Polyvalence des Traces** : Options Sphere, Line, Box et Multi-trace pour une détection précise.
-*   **Déclenchement Hybride** : **AnimNotify** (image précise) ou **Distance** (calculée procéduralement).
-*   **Mixage Audio** : Support complet de la Spatialisation, de l'Atténuation et de la modulation aléatoire.
+*   **Physic Asset** : Détecte les surfaces via `PhysicalMaterials` pour y attribuer les sons.
+*   **Traces** : Sphere, Line, Box, Multi-trace pour ajuster la précisions de la détection ou au spécificités du character.
+*   **Mode de déclenchement** : **AnimNotify** (réglé sur l'anim asset) ou **Distance** (plus simpe pour prototyper).
+*   **Mixage Audio** : Attenuation Settings & Chain Effect supporté.
 
 ---
 
@@ -32,7 +32,7 @@
 ![Setup](https://img.shields.io/badge/Setup-≈_5_min-28A745?style=flat-square)
 
 1.  **Activez le plugin** : Edit > Plugins > ProtoReady Footstep.
-2.  **Définissez vos Surfaces Physiques** : Edit > Project Settings > Engine > Physics > Physical Surface.
+2.  **Définissez vos Physical Surface** : Edit > Project Settings > Engine > Physics > Physical Surface. (optionel, par défault Surface Type 1,2..)
 3.  **Ajoutez le `PRFootstepComponent`** à votre Character (ou n'importe quel Actor).
 4.  **Créez un DataAsset `PRFootstepData`** et assignez-le au composant.
 
@@ -45,16 +45,17 @@
 ## Comment ça marche
 
 ### Déclenchement des pas
-*   **AnimNotify (piloté par l'animation)** : Ajoutez la notify `PR_Footstep` à vos animations. La notify expose `FootSocketName` et est disponible immédiatement.
-*   **Distance (auto)** : Déclenche un pas tous les `DistanceInterval` cm parcourus. En mode Distance, le Tick est activé automatiquement.
+*   **AnimNotify (piloté par l'animation)** : Ajoutez la notify `PR_Footstep` à vos animations. La notify expose `FootSocketName` (optionel) et est disponible immédiatement.
+*   **Distance (auto)** : Déclenche un bruit de pas tous les `DistanceInterval` (unité UE) parcourus. En mode Distance, le Tick est activé automatiquement.
 
 ### Réception (Landing)
-*   `bAutoTriggerLand` se lie automatiquement au `ACharacter::LandedDelegate`.
+*   `bAutoTriggerLand` se bind au `ACharacter::LandedDelegate`.
 *   `LandingSound` est utilisé s'il est défini ; sinon le système joue un son de pas standard avec le flag landing.
 
 ### Traces & surfaces
-*   La détection de surface se fait par trace sur un **Canal de Collision Configurable** (Défaut : `ECC_Visibility`).
-*   Les surfaces proviennent du **Physical Material** du mesh. S'il est manquant, `SurfaceType_Default` est utilisé.
+*   La détection de surface se fait par trace sur un **Collision Channel** (Défaut : `ECC_Visibility`).
+*   Le type de surface proviennent du **Physical Material** du mesh. S'il est manquant, `SurfaceType_Default` est utilisé.
+*   Fonctionne sur les **Material Landscape** avec plusieurs layers.
 *   `DefaultSound` est le son de repli utilisé lorsque la surface n'est pas mappée ou qu'aucun Physical Material n'est trouvé.
 
 ---
@@ -64,8 +65,8 @@
 *   **PRFootstepComponent** : Actor Component C++ léger.
 *   **PRFootstepData** : DataAsset de configuration.
 *   **20+ Samples Audio** : Béton, Terre, Herbe, Bois, Eau.
-*   **5 SoundCues** & Matériaux Physiques.
-*   **Niveau de Démonstration (Showcase)**.
+*   **5 SoundCues** & Physical Material pré-réglé.
+*   **Démo level**.
 
 ![Audio System](Distribution/Audio_System.png)
 
@@ -75,7 +76,7 @@
 
 ### Classes
 *   **`UPRFootstepComponent`** (`UActorComponent`) : Moteur logique central (Tick, Trace, Spawn). Optimisé avec LOD.
-*   **`UPRFootstepData`** (`UPrimaryDataAsset`) : Conteneur de configuration central.
+*   **`UPRFootstepData`** (`UPrimaryDataAsset`) : Data de configuration.
 
 ### Blueprint API
 ![BP](https://img.shields.io/badge/Blueprint-Nodes-00599C?style=flat-square)
