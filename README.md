@@ -11,16 +11,14 @@ A high-performance, DataAsset-driven footstep system for Unreal Engine. Designed
 - **Component-Based**: Drop `PRFootstepComponent` onto any Actor.
 - **Physics-Driven**: Automatically detects surfaces via Physical Materials.
 - **Flexible Tracing**:
-  - ✨ **Sphere Trace**: Catch edges and uneven terrain.
-  - 📏 **Line Trace**: Fast and precise.
-  - 📦 **Box Trace**: Ideal for flat-footed characters.
-- **Dual Trigger Modes**:
-  - **AnimNotify**: Frame-perfect synchronization (Animation-driven).
-  - **Distance**: Logic-driven stride calculations (Great for NPCs/prototypes).
-- **Audio Polish**:
-  - Spatialization & Attenuation support.
-  - Random Pitch/Volume modulation.
-  - Heavy Landing detection (Auto-binds to Character).
+  -  Sphere, Line, Multi, Box.
+- **Start** from Root, foots or socket.
+- **Trigger Modes**:
+  - **AnimNotify**
+  - **Distance**: Distance logic-driven stride calculations.
+- **Audio Mix** support :
+  - Attenuation
+  - Sound effect
 
 ---
 
@@ -46,14 +44,11 @@ Add the `PRFootstepComponent` to your Character.
 
 ## 📦 Content Included
 
-- **5 Material Types**: Concrete, Dirt, Grass, Water, Wood.
-- **20+ Audio Samples**: High-quality WAVs + SoundCues.
-- **Showcase Level**: Interactive demo map.
-
----
-
-## 🔧 Technical Details
-
+- PRFootstepComponent  (description succinte du système type : component C++ qui gère l'audio footstep, multiplayer + replication ready.)
+- **20+ Audio Samples**: WAVs + SoundCues.
+- **Showcase Level** : With NPC test actor + surface demo.
+    - 
+Technical : 
 - **Class**: `UPRFootstepComponent` (UActorComponent).
 - **Config**: `UPRFootstepData` (UPrimaryDataAsset).
 - **Network**: Client-side cosmetic effect (can be replicated via RPC if needed).
