@@ -20,7 +20,7 @@
 
 ## ⚡ Fonctionnalités Clés
 
-*   **Configuration Zéro-Code** : Strictement piloté par DataAsset. Les designers gèrent la configuration, pas la logique.
+*   **Configuration Zéro-Code** : Strictement piloté par DataAsset.
 *   **Interaction Physique** : Valide automatiquement les surfaces via `PhysicalMaterials`, empêchant les "bruits de pierre sur de l'herbe".
 *   **Polyvalence des Traces** : Options Sphere, Line, Box et Multi-trace pour une détection précise.
 *   **Déclenchement Hybride** : **AnimNotify** (image précise) ou **Distance** (calculée procéduralement).
