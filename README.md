@@ -1,6 +1,6 @@
 # 🦶 ProtoReady: Footstep System
 
-> **[UE 5.5+]** **[C++]** **[Production-Ready]**
+> **[UE 5.5+]** **[C++]** **[Replication]** **Optimized**
 
 A high-performance, DataAsset-driven footstep solution built for games made in Unreal Engine. C++ efficiency and helpful blueprint nodes for Blueprint control.
 
@@ -12,10 +12,10 @@ A high-performance, DataAsset-driven footstep solution built for games made in U
 
 - **Component-Based Architecture**: Seamless integration via the `PRFootstepComponent`.
 - **Physics-Driven Detection**: Automatically identifies surface types using the Physical Materials system.
-- **Versatile Trace Options**: Sphere, Line, Box, and Multi-trace methods.
+- **Trace Options**: Sphere, Line, Box, and Multi-trace methods.
 - **Trigger mode**: AnimNotify (Animation-Driven) or Distance (Procedural).
-- **Advanced Audio mix**: Spatialization, Attenuation, and random modulation (Pitch/Volume) 
-
+- **Audio Mix**: Spatialization, Attenuation, and random modulation (Pitch/Volume) 
+- Works with multi-layered **Landscape Materials** 
 ---
 
 ## 🛠️ Integration Guide
@@ -23,6 +23,7 @@ A high-performance, DataAsset-driven footstep solution built for games made in U
 ### 1. Installation & Setup
 1. Place `PR_Footstep` in your `Plugins` folder and enable it.
 2. Define **Physical Surfaces** in `Project Settings > Engine > Physics`.
+   (default PRFootStepData uses Surface Type 1-5)
 
 ![Physics Settings](Distribution/Setup_Physics.png)
 
@@ -32,9 +33,9 @@ Create a `PRFootstepData` asset to map surfaces to sounds and configure trace se
 ![Data Asset Configuration](Distribution/Setup_DataAsset.png)
 
 ### 3. Usage
-Attach the `PRFootstepComponent` to your Character.
-- **AnimNotify**: Insert the `PR_Footstep` notify into your Locomotion animations.
-- **Distance Mode**: Set `TriggerMode` to *Distance* for automatic triggering.
+Add `PRFootstepComponent` to your Character. (works with any actor on Distance mode)
+- **AnimNotify**: Insert the `PR_Footstep` notify into your Animation Sequence.
+- **Distance Mode**: Set `Foot Interval Distance` for automatic triggering. (Blueprint controllable)
 
 ---
 
@@ -42,7 +43,9 @@ Attach the `PRFootstepComponent` to your Character.
 
 - **PRFootstepComponent**: Lightweight C++ Actor Component.
 - **20+ Footstep Audio Samples**: A selection of varied footstep sounds (Concrete, Dirt, Grass, Wood, Water) ready for prototyping.
-- **Showcase Level**: Fully configured demo environment.
+- **5 Soundcues** & 5 simple **Physical Material**
+- **1 Sound Attenuation** setting for audio distance fall-of.
+- **Showcase Level**
 
 ![Audio System](Distribution/Audio_System.png)
 
