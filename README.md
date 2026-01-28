@@ -1,16 +1,16 @@
-# ProtoReady: Footstep System
+# ProtoReady : Système de Pas
 
 ![UE5](https://img.shields.io/badge/Unreal_Engine-5.5+-0078D7?style=for-the-badge&logo=unrealengine&logoColor=white) 
 ![CPP](https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) 
 ![Replication](https://img.shields.io/badge/REPLICATION-Supported-28A745?style=for-the-badge&labelColor=28A745)
 
-> **Production-Ready Footstep System setup in under 5 minutes.**
+> **Système de sons de pas prêt pour la production, configuré en moins de 5 minutes.**
 >
-> *   **Drag-and-drop** components
+> *   Composants **Drag-and-drop**
 > *   **Auto-configuration** via DataAssets
-> *   **Zero boilerplate** code required
-> *   **Quick start** clear (< 5 min)
-> *   **Tooltips** in editor
+> *   **Zéro code** (boilerplate) requis
+> *   **Quick start** clair (< 5 min)
+> *   **Tooltips** dans l'éditeur
 
 ![Showcase Level](Distribution/pr_footstep_banner_v3.png)
 
@@ -18,79 +18,79 @@
 
 ---
 
-## ⚡ Key Capabilities
+## ⚡ Fonctionnalités Clés
 
-*   **Zero-Code Setup**: Strictly DataAsset-driven. Designers handle configuration, not logic.
-*   **Physics Interaction**: Automatically validates surfaces via `PhysicalMaterials`, preventing "stone sounds on grass".
-*   **Trace Versatility**: Sphere, Line, Box, and Multi-trace options for precise detection.
-*   **Hybrid Triggering**: Frame-perfect **AnimNotify** or procedurally calculated **Distance**.
-*   **Audio Mix**: Full support for Spatialization, Attenuation, and random modulation.
+*   **Configuration Zéro-Code** : Strictement piloté par DataAsset. Les designers gèrent la configuration, pas la logique.
+*   **Interaction Physique** : Valide automatiquement les surfaces via `PhysicalMaterials`, empêchant les "bruits de pierre sur de l'herbe".
+*   **Polyvalence des Traces** : Options Sphere, Line, Box et Multi-trace pour une détection précise.
+*   **Déclenchement Hybride** : **AnimNotify** (image précise) ou **Distance** (calculée procéduralement).
+*   **Mixage Audio** : Support complet de la Spatialisation, de l'Atténuation et de la modulation aléatoire.
 
 ---
 
-## Setup
+## Installation (Setup)
 ![Setup](https://img.shields.io/badge/Setup-≈_5_min-28A745?style=flat-square)
 
-1.  **Enable the plugin**: Edit > Plugins > ProtoReady Footstep.
-2.  **Define your Physical Surfaces**: Edit > Project Settings > Engine > Physics > Physical Surface.
-3.  **Add the `PRFootstepComponent`** to your Character (or any Actor).
-4.  **Create a `PRFootstepData` DataAsset** and assign it to the component.
+1.  **Activez le plugin** : Edit > Plugins > ProtoReady Footstep.
+2.  **Définissez vos Surfaces Physiques** : Edit > Project Settings > Engine > Physics > Physical Surface.
+3.  **Ajoutez le `PRFootstepComponent`** à votre Character (ou n'importe quel Actor).
+4.  **Créez un DataAsset `PRFootstepData`** et assignez-le au composant.
 
-*Example surfaces: Concrete, Dirt, Grass, Water, Wood. If only one `PRFootstepData` exists, it is auto-assigned on creation.*
+*Exemples de surfaces : Concrete, Dirt, Grass, Water, Wood. S'il n'existe qu'un seul `PRFootstepData`, il est auto-assigné à la création.*
 
 ![Data Asset](Distribution/Setup_DataAsset.png)
 
 ---
 
-## How it works
+## Comment ça marche
 
-### Footstep triggering
-*   **AnimNotify (animation-driven)**: Add the `PR_Footstep` notify to your animations. The notify exposes `FootSocketName` and is available immediately.
-*   **Distance (auto)**: Triggers a step every `DistanceInterval` cm traveled. In Distance mode, Tick is enabled automatically.
+### Déclenchement des pas
+*   **AnimNotify (piloté par l'animation)** : Ajoutez la notify `PR_Footstep` à vos animations. La notify expose `FootSocketName` et est disponible immédiatement.
+*   **Distance (auto)** : Déclenche un pas tous les `DistanceInterval` cm parcourus. En mode Distance, le Tick est activé automatiquement.
 
-### Landing
-*   `bAutoTriggerLand` auto-binds `ACharacter::LandedDelegate`.
-*   `LandingSound` is used if set; otherwise the system plays a standard footstep with the landing flag.
+### Réception (Landing)
+*   `bAutoTriggerLand` se lie automatiquement au `ACharacter::LandedDelegate`.
+*   `LandingSound` est utilisé s'il est défini ; sinon le système joue un son de pas standard avec le flag landing.
 
 ### Traces & surfaces
-*   Surface detection is done by trace on a **Configurable Collision Channel** (Default: `ECC_Visibility`).
-*   Surfaces come from the mesh **Physical Material**. If missing, `SurfaceType_Default` is used.
-*   `DefaultSound` is the fallback sound used when the surface is not mapped or when no Physical Material is found.
+*   La détection de surface se fait par trace sur un **Canal de Collision Configurable** (Défaut : `ECC_Visibility`).
+*   Les surfaces proviennent du **Physical Material** du mesh. S'il est manquant, `SurfaceType_Default` est utilisé.
+*   `DefaultSound` est le son de repli utilisé lorsque la surface n'est pas mappée ou qu'aucun Physical Material n'est trouvé.
 
 ---
 
-## Package Contents
+## Contenu du Package
 
-*   **PRFootstepComponent**: Lightweight C++ Actor Component.
-*   **PRFootstepData**: Configuration DataAsset.
-*   **20+ Audio Samples**: Concrete, Dirt, Grass, Wood, Water.
-*   **5 SoundCues** & Physical Materials.
-*   **Showcase Level**.
+*   **PRFootstepComponent** : Actor Component C++ léger.
+*   **PRFootstepData** : DataAsset de configuration.
+*   **20+ Samples Audio** : Béton, Terre, Herbe, Bois, Eau.
+*   **5 SoundCues** & Matériaux Physiques.
+*   **Niveau de Démonstration (Showcase)**.
 
 ![Audio System](Distribution/Audio_System.png)
 
 ---
 
-## Technical Specifications
+## Spécifications Techniques
 
 ### Classes
-*   **`UPRFootstepComponent`** (`UActorComponent`): Core logic engine (Tick, Trace, Spawn). Optimized with LOD.
-*   **`UPRFootstepData`** (`UPrimaryDataAsset`): Central configuration container.
+*   **`UPRFootstepComponent`** (`UActorComponent`) : Moteur logique central (Tick, Trace, Spawn). Optimisé avec LOD.
+*   **`UPRFootstepData`** (`UPrimaryDataAsset`) : Conteneur de configuration central.
 
 ### Blueprint API
 ![BP](https://img.shields.io/badge/Blueprint-Nodes-00599C?style=flat-square)
 
-The system exposes key functions for gameplay logic:
+Le système expose des fonctions clés pour la logique de gameplay :
 
-| Node | Description | Use Case |
+| Noeud | Description | Cas d'usage |
 | :--- | :--- | :--- |
-| **Set Trigger Mode** | Switch between `AnimNotify` and `Distance` logic at runtime. | NPC Patrol vs Combat state. |
-| **Set Footstep Interval** | Change the stride distance triggering a step. | Walk vs Run gait. |
-| **Trigger Footstep** | Force a single footstep trace immediately. | Cutscenes or Landing events. |
+| **Set Trigger Mode** | Basculer entre la logique `AnimNotify` et `Distance` au runtime. | Patrouille NPC vs État de combat. |
+| **Set Footstep Interval** | Changer la distance parcourue pour déclencher un pas. | Marche vs Course. |
+| **Trigger Footstep** | Forcer une trace de pas unique immédiatement. | Cinématiques ou événements de réception. |
 
 ---
 
-## License
+## Licence
 
 **MIT License**.
 (c) 2026 ProtoReady Pack
