@@ -14,7 +14,7 @@
 
 ![Showcase Level](Distribution/pr_footstep_banner_v3.png)
 
-![Trace Channel](https://img.shields.io/badge/Trace_Channel-Configurable-28A745?style=flat-square&labelColor=28A745) ![Surface](https://img.shields.io/badge/Surface-Detection-000000?style=flat-square&labelColor=000000) ![Trigger](https://img.shields.io/badge/Distance_/_AnimNotify-Supported-d00000?style=flat-square&labelColor=d00000)
+![Trace Channel](https://img.shields.io/badge/Trace_Channel-Configurable-28A745?style=flat-square&labelColor=28A745) ![Distance](https://img.shields.io/badge/Trigger-Distance-000000?style=flat-square&labelColor=000000) ![AnimNotify](https://img.shields.io/badge/Trigger-AnimNotify-d00000?style=flat-square&labelColor=d00000)
 
 ---
 
