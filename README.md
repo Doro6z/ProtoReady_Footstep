@@ -41,7 +41,7 @@ Attach the `PRFootstepComponent` to your Character.
 ## 📦 Package Contents
 
 - **PRFootstepComponent**: Lightweight C++ Actor Component.
-- **20+ High-Fidelity Audio Samples**: WAVs and SoundCues.
+- **20+ Footstep Audio Samples**: A selection of varied footstep sounds (Concrete, Dirt, Grass, Wood, Water) ready for prototyping.
 - **Showcase Level**: Fully configured demo environment.
 
 ![Audio System](Distribution/Audio_System.png)
@@ -50,8 +50,34 @@ Attach the `PRFootstepComponent` to your Character.
 
 ## 🔧 Technical Specifications
 
-- **Class**: `UPRFootstepComponent` / `UPRFootstepData`.
-- **Networking**: Client-side cosmetic execution (RPC replication supported).
-- **License**: MIT (Commercial use authorized).
+### Classes
+- **`UPRFootstepComponent`** (`UActorComponent`):
+  - The core logic engine. Handles tick updates (for distance checking), trace execution, and sound spawning.
+  - Optimized to minimize overhead when not moving or out of range (LOD).
+- **`UPRFootstepData`** (`UPrimaryDataAsset`):
+  - Central configuration file. Stores all impact sounds, trace parameters, and audio settings.
+  - Decoupled from logic allows for easy swapping (e.g., Heavy vs Light boots).
 
+### Blueprint API
+The system exposes several key functions to Blueprint for gameplay logic:
+
+*   **`TriggerFootstep(FName SocketName)`**:
+    *   *Description*: Manually force a footstep trace/sound from a specific socket.
+    *   *Use Case*: Landing events, special animation moments, or cutscenes.
+
+*   **`SetFootstepInterval(float NewInterval)`**:
+    *   *Description*: Updates the distance required to travel before automatically triggering a step (Distance Mode only).
+    *   *Use Case*: Changing gait from Walk (120cm) to Run (200cm).
+
+*   **`GetFootstepInterval()`**:
+    *   *Description*: Returns the current interval distance.
+
+*   **`SetTriggerMode(EPRFootstepTriggerMode NewMode)`**:
+    *   *Description*: Switches between AnimNotify and Distance modes at runtime.
+
+---
+
+## 📄 License
+
+Released under the **MIT License**. Authorized for commercial utilization.
 (c) 2026 ProtoReady Pack
