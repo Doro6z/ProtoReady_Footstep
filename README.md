@@ -2,7 +2,7 @@
 
 > **[UE 5.5+]** **[C++]** **[Production-Ready]**
 
-A high-performance, DataAsset-driven footstep solution built for Unreal Engine. Engineered for C++ efficiency, this system offers a streamlined workflow that eliminates the need for Blueprint dependencies while maintaining full designer control.
+A high-performance, DataAsset-driven footstep solution built for games made in Unreal Engine. C++ efficiency and helpful blueprint nodes for Blueprint control.
 
 ![Showcase Level](Distribution/Showcase_Level.png)
 
@@ -13,8 +13,8 @@ A high-performance, DataAsset-driven footstep solution built for Unreal Engine. 
 - **Component-Based Architecture**: Seamless integration via the `PRFootstepComponent`.
 - **Physics-Driven Detection**: Automatically identifies surface types using the Physical Materials system.
 - **Versatile Trace Options**: Sphere, Line, Box, and Multi-trace methods.
-- **Dual Triggering Mechanisms**: AnimNotify (Animation-Driven) or Distance (Procedural).
-- **Advanced Audio**: Spatialization, Attenuation, and random modulation (Pitch/Volume).
+- **Trigger mode**: AnimNotify (Animation-Driven) or Distance (Procedural).
+- **Advanced Audio mix**: Spatialization, Attenuation, and random modulation (Pitch/Volume) 
 
 ---
 
