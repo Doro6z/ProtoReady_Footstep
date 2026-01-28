@@ -34,8 +34,11 @@
 1.  **Activez le plugin** : Edit > Plugins > ProtoReady Footstep.
 2.  **Définissez vos Physical Surface** : Edit > Project Settings > Engine > Physics > Physical Surface. (optionel, par défault Surface Type 1,2..)
 3.  **Ajoutez le `PRFootstepComponent`** à votre Character (ou n'importe quel Actor).
-4.  **Créez un DataAsset `PRFootstepData`** et assignez-le au composant.
+4.  **Créez un DataAsset `PRFootstepData`**  et assignez-le au composant.
 
+Configuration personnalisée :
+5. **Configurez le DataAsset** avec vos paramètres personnalisés.
+6. (optionel) Activez le débug sur le Composant du Character.
 *Exemples de surfaces : Concrete, Dirt, Grass, Water, Wood. S'il n'existe qu'un seul `PRFootstepData`, il est auto-assigné à la création.*
 
 ![Data Asset](Distribution/Setup_DataAsset.png)
