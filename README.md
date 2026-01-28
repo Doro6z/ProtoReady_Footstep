@@ -2,22 +2,26 @@
 
 ![UE5](https://img.shields.io/badge/Unreal_Engine-5.5+-0078D7?style=for-the-badge&logo=unrealengine&logoColor=white) 
 ![CPP](https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) 
-![Replication](https://img.shields.io/badge/REPLICATION-Ready-28A745?style=for-the-badge)
+![Replication](https://img.shields.io/badge/REPLICATION-Supported-28A745?style=for-the-badge&labelColor=28A745)
 
 > **Production-Ready Footstep System setup in under 5 minutes.**
 >
-> A high-performance solution engineered for **Physical Surfaces**. Drop the component on your character, and it just works. No spaghetti Blueprint logic required.
+> *   **Drag-and-drop** components
+> *   **Auto-configuration** via DataAssets
+> *   **Zero boilerplate** code required
+> *   **Quick start** clear (< 5 min)
+> *   **Tooltips** in editor
 
 ![Showcase Level](Distribution/pr_footstep_banner_v3.png)
 
-![Trace](https://img.shields.io/badge/Trace-Sphere_/_Line_/_Box-d00000?style=flat-square&labelColor=black) ![Surface](https://img.shields.io/badge/Surface-Physical_Material-d00000?style=flat-square&labelColor=black) ![Trigger](https://img.shields.io/badge/Trigger-Distance_/_AnimNotify-d00000?style=flat-square&labelColor=black)
+![Trace Channel](https://img.shields.io/badge/Trace_Channel-Configurable-28A745?style=flat-square&labelColor=28A745) ![Surface](https://img.shields.io/badge/Surface-Detection-000000?style=flat-square&labelColor=000000) ![Trigger](https://img.shields.io/badge/Distance_/_AnimNotify-Supported-d00000?style=flat-square&labelColor=d00000)
 
 ---
 
 ## ⚡ Key Capabilities
 
 *   **Zero-Code Setup**: Strictly DataAsset-driven. Designers handle configuration, not logic.
-*   **Physics Interaction**: Automatically validates surfaces via `PhysicalMaterials` (e.g., prevents "stone sounds on grass").
+*   **Physics Interaction**: Automatically validates surfaces via `PhysicalMaterials`, preventing "stone sounds on grass".
 *   **Trace Versatility**: Sphere, Line, Box, and Multi-trace options for precise detection.
 *   **Hybrid Triggering**: Frame-perfect **AnimNotify** or procedurally calculated **Distance**.
 *   **Audio Mix**: Full support for Spatialization, Attenuation, and random modulation.
@@ -74,7 +78,7 @@
 *   **`UPRFootstepData`** (`UPrimaryDataAsset`): Central configuration container.
 
 ### Blueprint API
-![BP](https://img.shields.io/badge/Blueprint-Native_Nodes-00599C?style=flat-square)
+![BP](https://img.shields.io/badge/Blueprint-Nodes-00599C?style=flat-square)
 
 The system exposes key functions for gameplay logic:
 
