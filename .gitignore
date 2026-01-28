@@ -1,0 +1,22 @@
+# Unreal Engine
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/
+
+# Visual Studio / IDE
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vc.db
+*.opendb
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Distribution (Optional - keep if you want to track it, ignore if it's generated artifacts)
+# Keeping it for now as it contains the README assets
