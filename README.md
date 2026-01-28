@@ -4,24 +4,26 @@
 ![CPP](https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) 
 ![Net](https://img.shields.io/badge/Replication-Supported-28A745?style=for-the-badge)
 
-> **[UE 5.5+]** **[C++]** **[Production-Ready]**
-> Système de pas prêt à l’emploi, basé sur Physical Surfaces et DataAsset. Aucun code Blueprint requis pour démarrer.
+> **Production-Ready Footstep System setup in under 5 minutes.**
+>
+> A high-performance solution engineered for **Physical Surfaces**. Drop the component on your character, and it just works. No spaghetti Blueprint logic required.
 
-![Showcase Level](Distribution/Showcase_Level.png)
+![Showcase Level](Distribution/pr_footstep_banner_v2.png)
 
 ---
 
-## Key Capabilities
+## ⚡ Key Capabilities
 
-*   **Logic/Data Decoupling**: Swap "Footstep Data Assets" at runtime (e.g., Heavy Armor vs Sneakers) without changing logic.
-*   **Physics Interaction**: Validates surfaces via `PhysicalMaterials`, preventing "stone sounds on grass".
-*   **Trace Versatility**: Sphere, Line, Box, and Multi-trace options.
-*   **Hybrid Triggering**: AnimNotify (Animation-Driven) or Distance (Procedural).
-*   **Advanced Audio**: Spatialization, Attenuation, and random modulation (Pitch/Volume).
+*   **Zero-Code Setup**: Strictly DataAsset-driven. Designers handle configuration, not logic.
+*   **Physics Interaction**: Automatically validates surfaces via `PhysicalMaterials` (e.g., prevents "stone sounds on grass").
+*   **Trace Versatility**: Sphere, Line, Box, and Multi-trace options for precise detection.
+*   **Hybrid Triggering**: Frame-perfect **AnimNotify** or procedurally calculated **Distance**.
+*   **Audio Mix**: Full support for Spatialization, Attenuation, and random modulation.
 
 ---
 
 ## Setup
+![Setup](https://img.shields.io/badge/Setup-Under_5_Min-28A745?style=flat-square)
 
 1.  **Enable the plugin**: Edit > Plugins > ProtoReady Footstep.
 2.  **Define your Physical Surfaces**: Edit > Project Settings > Engine > Physics > Physical Surface.
@@ -53,8 +55,6 @@
 
 ## Package Contents
 
-![Audio](https://img.shields.io/badge/Audio_Samples-20+-FFC107?style=flat-square) ![Assets](https://img.shields.io/badge/Sound_Cues-5-FFC107?style=flat-square)
-
 *   **PRFootstepComponent**: Lightweight C++ Actor Component.
 *   **PRFootstepData**: Configuration DataAsset.
 *   **20+ Audio Samples**: Concrete, Dirt, Grass, Wood, Water.
@@ -67,13 +67,13 @@
 
 ## Technical Specifications
 
-![Architecture](https://img.shields.io/badge/Class-Actor_Component-informational?style=flat-square) ![Config](https://img.shields.io/badge/Config-DataAsset-informational?style=flat-square)
-
 ### Classes
 *   **`UPRFootstepComponent`** (`UActorComponent`): Core logic engine (Tick, Trace, Spawn). Optimized with LOD.
 *   **`UPRFootstepData`** (`UPrimaryDataAsset`): Central configuration container.
 
 ### Blueprint API
+![BP](https://img.shields.io/badge/Blueprint-Native_Nodes-00599C?style=flat-square)
+
 The system exposes key functions for gameplay logic:
 
 | Node | Description | Use Case |
