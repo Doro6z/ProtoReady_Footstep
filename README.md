@@ -4,62 +4,54 @@
 
 A high-performance, DataAsset-driven footstep solution built for Unreal Engine. Engineered for C++ efficiency, this system offers a streamlined workflow that eliminates the need for Blueprint dependencies while maintaining full designer control.
 
+![Showcase Level](Distribution/Showcase_Level.png)
+
 ---
 
 ## 🚀 Key Capabilities
 
-- **Component-Based Architecture**: Seamless integration via the `PRFootstepComponent`, compatible with any Actor class.
-- **Physics-Driven Detection**: Automatically identifies surface types using the engine's Physical Materials system.
-- **Versatile Trace Options**:
-  - **Trace Shapes**: Supports Sphere, Line, Box, and Multi-trace methods for varying terrain complexity.
-  - **Trace Origin**: Configurable start point from Sockets, Actor Root, or Capsule Center.
-- **Dual Triggering Mechanisms**:
-  - **AnimNotify**: Ensures precise synchronization with animation frames (Animation-Driven).
-  - **Distance**: Logic-driven stride calculation, ideal for procedural movement or NPCs.
-- **Advanced Audio Processing**:
-  - **Spatialization**: Full support for Attenuation settings and 3D positioning.
-  - **DSP Effects**: Integrated support for Sound Effects Chains.
-  - **Modulation**: Runtime randomization of Pitch and Volume.
+- **Component-Based Architecture**: Seamless integration via the `PRFootstepComponent`.
+- **Physics-Driven Detection**: Automatically identifies surface types using the Physical Materials system.
+- **Versatile Trace Options**: Sphere, Line, Box, and Multi-trace methods.
+- **Dual Triggering Mechanisms**: AnimNotify (Animation-Driven) or Distance (Procedural).
+- **Advanced Audio**: Spatialization, Attenuation, and random modulation (Pitch/Volume).
 
 ---
 
 ## 🛠️ Integration Guide
 
-### 1. Installation
-1. Place the `PR_Footstep` directory into your project's `Plugins` folder.
-2. Activate the plugin via **Edit > Plugins**.
+### 1. Installation & Setup
+1. Place `PR_Footstep` in your `Plugins` folder and enable it.
+2. Define **Physical Surfaces** in `Project Settings > Engine > Physics`.
+
+![Physics Settings](Distribution/Setup_Physics.png)
 
 ### 2. Configuration
-1. Define your **Physical Surfaces** within `Project Settings > Engine > Physics`.
-2. Generate a `PRFootstepData` asset.
-3. Map the defined surfaces to their corresponding Sound assets (SoundCues or WAVs).
+Create a `PRFootstepData` asset to map surfaces to sounds and configure trace settings.
 
-![Surfaces Setup](Distribution/PR_DataAsset_Surfaces.png)
+![Data Asset Configuration](Distribution/Setup_DataAsset.png)
 
 ### 3. Usage
-Attach the `PRFootstepComponent` to your Character class.
+Attach the `PRFootstepComponent` to your Character.
 - **AnimNotify**: Insert the `PR_Footstep` notify into your Locomotion animations.
-- **Distance Mode**: Set `TriggerMode` to *Distance* within the Data Asset configuration.
+- **Distance Mode**: Set `TriggerMode` to *Distance* for automatic triggering.
 
 ---
 
 ## 📦 Package Contents
 
-- **PRFootstepComponent**: A lightweight, replication-ready C++ Actor Component handling all footstep logic and audio management.
-- **20+ High-Fidelity Audio Samples**: Comprehensive library of WAVs and pre-configured SoundCues.
-- **Showcase Level**: Includes a fully configured NPC test actor and surface demonstration area.
+- **PRFootstepComponent**: Lightweight C++ Actor Component.
+- **20+ High-Fidelity Audio Samples**: WAVs and SoundCues.
+- **Showcase Level**: Fully configured demo environment.
+
+![Audio System](Distribution/Audio_System.png)
 
 ---
 
 ## 🔧 Technical Specifications
 
-- **Component Class**: `UPRFootstepComponent` (derived from `UActorComponent`).
-- **Configuration Class**: `UPRFootstepData` (derived from `UPrimaryDataAsset`).
+- **Class**: `UPRFootstepComponent` / `UPRFootstepData`.
 - **Networking**: Client-side cosmetic execution (RPC replication supported).
+- **License**: MIT (Commercial use authorized).
 
----
-
-## 📄 Licensing
-
-Released under the **MIT License**. Authorized for commercial utilization.
 (c) 2026 ProtoReady Pack
