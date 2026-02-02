@@ -84,13 +84,8 @@ Configuration personnalisée :
 ### Blueprint API
 ![BP](https://img.shields.io/badge/Blueprint-Nodes-00599C?style=flat-square)
 
-Le système expose des fonctions clés pour la logique de gameplay :
+Le système expose des fonctions clés pour contrôler la logique de côté BP.
 
-| Noeud | Description | Cas d'usage |
-| :--- | :--- | :--- |
-| **Set Trigger Mode** | Basculer entre la logique `AnimNotify` et `Distance` au runtime. | Patrouille NPC vs État de combat. |
-| **Set Footstep Interval** | Changer la distance parcourue pour déclencher un pas. | Marche vs Course. |
-| **Trigger Footstep** | Forcer une trace de pas unique immédiatement. | Cinématiques ou événements de réception. |
 
 ---
 
